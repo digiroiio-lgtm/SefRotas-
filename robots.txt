@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /thank-you/
+Disallow: /basvuru/basarili/
+Disallow: /*?utm_
+Disallow: /*?gclid=
+
+Sitemap: https://sefrotasi.com/sitemap.xml
