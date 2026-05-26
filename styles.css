@@ -297,6 +297,20 @@ a.card:hover { text-decoration: none; }
   gap: 18px;
   margin-top: 10px;
 }
+.process-media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 0 0 20px;
+}
+.process-media-card {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  height: 200px;
+}
+.process-media-card img { width: 100%; height: 100%; object-fit: cover; }
 .process-card {
   padding: 24px;
   border-radius: 18px;
@@ -378,6 +392,16 @@ a.card:hover { text-decoration: none; }
   padding: 24px;
   box-shadow: var(--shadow);
 }
+.consult-profile {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 12px;
+  border: 2px solid #e4d7ca;
+  box-shadow: 0 8px 22px rgba(17, 12, 9, 0.16);
+}
+.consult-profile img { width: 100%; height: 100%; object-fit: cover; }
 .consult-card .role {
   display: block;
   font-size: 0.76rem;
@@ -480,7 +504,17 @@ a.card:hover { text-decoration: none; }
   background: linear-gradient(140deg, #671e19, #4f1310);
   padding: 88px 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
+.cta-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg, rgba(15, 11, 8, 0.7) 0%, rgba(28, 14, 11, 0.56) 100%), url('/images/photo-portrait-chef-cooking-action-controlling-flames-with-precision_763111-321904.webp') center/cover no-repeat;
+  opacity: 0.44;
+}
+.cta-band .container { position: relative; z-index: 1; }
 .cta-band h2 { color: #fff; margin-bottom: 12px; }
 .cta-band p { color: rgba(255, 255, 255, 0.78); max-width: 600px; margin: 0 auto 30px; font-size: 1.04rem; line-height: 1.72; }
 .btn-white { background: #fff; color: var(--accent); font-weight: 700; border: none; }
@@ -671,21 +705,13 @@ footer .small { font-size: 0.88rem; color: #a29c95; line-height: 1.76; margin-bo
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #fff;
   margin-bottom: 16px;
   flex-shrink: 0;
   box-shadow: 0 8px 20px rgba(111, 31, 26, 0.22);
-  font-family: 'Playfair Display', Georgia, serif;
-  letter-spacing: -0.02em;
+  overflow: hidden;
+  border: 2px solid #ebded0;
 }
-.story-avatar-m { background: linear-gradient(135deg, #7e2620, #5f1713); }
-.story-avatar-a { background: linear-gradient(135deg, #b45309, #92400e); }
-.story-avatar-e { background: linear-gradient(135deg, #1e3a5f, #2563ab); }
+.story-avatar img { width: 100%; height: 100%; object-fit: cover; }
 .story-location {
   display: inline-flex;
   align-items: center;
@@ -880,6 +906,56 @@ footer .small { font-size: 0.88rem; color: #a29c95; line-height: 1.76; margin-bo
 .post-related-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
 .post-related-card h4 { font-size: 0.91rem; margin: 0 0 5px; line-height: 1.44; color: var(--text); }
 .post-related-card span { font-size: 0.79rem; color: var(--accent); font-weight: 600; }
+.post-author-box {
+  margin-top: 28px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  padding: 14px;
+}
+.post-author-box img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e9dccf;
+}
+.post-author-box strong { display: block; font-size: 0.9rem; margin-bottom: 4px; }
+.post-author-box p { margin: 0; font-size: 0.84rem; color: var(--muted); line-height: 1.6; }
+.page-feature-media {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  margin: 0 0 22px;
+  height: 280px;
+  position: relative;
+}
+.page-feature-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(16, 10, 8, 0.35) 0%, transparent 55%);
+}
+.page-feature-media img { width: 100%; height: 100%; object-fit: cover; }
+.program-visual-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.program-visual-card .program-image {
+  width: 100%;
+  height: 170px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.program-visual-card .program-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.program-visual-card:hover .program-image img { transform: scale(1.05); }
 
 @media (max-width: 900px) {
   .hero { padding-top: 90px; }
@@ -913,4 +989,5 @@ footer .small { font-size: 0.88rem; color: #a29c95; line-height: 1.76; margin-bo
   .post-hero { height: 210px; margin-bottom: 26px; }
   .stories-grid { grid-template-columns: 1fr; }
   .partner-grid { grid-template-columns: 1fr 1fr; }
+  .page-feature-media { height: 210px; }
 }
